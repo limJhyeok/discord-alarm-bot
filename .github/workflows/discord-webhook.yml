@@ -1,8 +1,11 @@
 name: 디스코드 알림봇
 
 on:
-  schedule: # UTC+9 기준 3시 실행
-    - cron:  "15 08 * * *"
+  schedule: 
+    # UTC+9(KST) 기준 8시 10분 알람
+    - cron:  "10 23 * * *"
+    # UTC+9(KST) 기준 9시 10분 알람
+    - cron:  "10 00 * * *"
 
 jobs:
   message:
@@ -12,4 +15,13 @@ jobs:
       uses: tsickert/discord-webhook@v5.3.0
       with:
         webhook-url: ${{ secrets.DISCORD_WEBHOOK }}
-        content: "디스코드 webhook 테스트"
+        content: "기상 인증 알람"
+
+  scrum_message:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Discord Webhook Action
+      uses: tsickert/discord-webhook@v5.3.0
+      with:
+        webhook-url: ${{ secrets.DISCORD_WEBHOOK }}
+        content: "데일리 스크럼 인증 알람"
