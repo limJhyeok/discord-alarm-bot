@@ -13,13 +13,4 @@ jobs:
       uses: tsickert/discord-webhook@v5.3.0
       with:
         webhook-url: ${{ secrets.DISCORD_WEBHOOK }}
-        content: "기상 인증 알람"
-
-  scrum_message:
-    runs-on: ubuntu-latest
-    steps:
-    - name: Discord Webhook Action
-      uses: tsickert/discord-webhook@v5.3.0
-      with:
-        webhook-url: ${{ secrets.DISCORD_WEBHOOK }}
-        content: "데일리 스크럼 인증 알람"
+        content: "기상 인증 및 데일리 스크럼 인증 알람"
